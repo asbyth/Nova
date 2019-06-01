@@ -35,6 +35,6 @@ class NovaTweaker : ITweaker {
     }
 
     override fun injectIntoClassLoader(classLoader: LaunchClassLoader?) {
-
+        // need to make asm inject somehow, dont know yet, but as of now it's not doing anything
     }
 }
