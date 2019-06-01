@@ -3,7 +3,6 @@ package net.novaclient.nova
 import org.apache.logging.log4j.LogManager
 
 class Nova {
-    val instance = Nova()
     val logger = LogManager.getLogger("Nova")!!
 
     fun startNova() {

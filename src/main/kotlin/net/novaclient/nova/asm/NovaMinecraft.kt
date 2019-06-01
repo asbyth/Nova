@@ -19,7 +19,7 @@ class NovaMinecraft : BaseClassTransformer() {
         at = At(InjectionPoint.RETURN) // change to invoke at GuiIngame whenever false is up bc i dont know how to use invoke rn lol ~ asbyth
 
         insnList {
-            invoke(InvokeType.VIRTUAL, "net/novaclient/nova/Nova", "startNova", "()V")
+            invoke(InvokeType.VIRTUAL, "net/novaclient/nova/Nova", "startNova", "()V") // i got a feelin that this isnt gonna work
         }
     }
 }
