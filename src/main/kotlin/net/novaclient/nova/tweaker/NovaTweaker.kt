@@ -35,6 +35,6 @@ class NovaTweaker : ITweaker {
     }
 
     override fun injectIntoClassLoader(classLoader: LaunchClassLoader) {
-        classLoader.registerTransformer("net.novaclient.nova.asm.NovaMinecraft")
+        classLoader.registerTransformer("net.novaclient.nova.asm.NovaTransformers")
     }
 }
