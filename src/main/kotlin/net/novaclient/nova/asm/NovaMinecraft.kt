@@ -23,7 +23,7 @@ class NovaMinecraft : BaseClassTransformer() {
             "net/minecraft/client/gui/GuiIngame",
             "<init>",
             "(Lnet/minecraft/client/Minecraft;)V"
-        )))
+        )), before = false)
 
         insnList {
             invokeKOBjectFunction("net/novaclient/nova/Nova", "startNova", "()V")
