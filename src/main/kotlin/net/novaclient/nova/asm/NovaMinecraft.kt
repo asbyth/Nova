@@ -4,8 +4,10 @@ import me.falsehonesty.asmhelper.BaseClassTransformer
 import me.falsehonesty.asmhelper.dsl.At
 import me.falsehonesty.asmhelper.dsl.InjectionPoint
 import me.falsehonesty.asmhelper.dsl.inject
+import me.falsehonesty.asmhelper.dsl.instructions.Descriptor
 import me.falsehonesty.asmhelper.dsl.instructions.InvokeType
 import me.falsehonesty.asmhelper.dsl.instructions.invoke
+import me.falsehonesty.asmhelper.dsl.instructions.invokeKOBjectFunction
 
 class NovaMinecraft : BaseClassTransformer() {
 
@@ -16,10 +18,15 @@ class NovaMinecraft : BaseClassTransformer() {
     private fun injectStartNova() = inject {
         className = "net.minecraft.client.Minecraft"
         methodName = "startGame"
-        at = At(InjectionPoint.RETURN) // change to invoke at GuiIngame whenever false is up bc i dont know how to use invoke rn lol ~ asbyth
+        methodDesc = "()V"
+        at = At(InjectionPoint.INVOKE(Descriptor(
+            "net/minecraft/client/gui/GuiIngame",
+            "<init>",
+            "(Lnet/minecraft/client/Minecraft;)V"
+        )))
 
         insnList {
-            invoke(InvokeType.VIRTUAL, "net/novaclient/nova/Nova", "startNova", "()V") // i got a feelin that this isnt gonna work
+            invokeKOBjectFunction("net/novaclient/nova/Nova", "startNova", "()V")
         }
     }
 }

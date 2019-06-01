@@ -34,7 +34,7 @@ class NovaTweaker : ITweaker {
         return novaArguments!!.toTypedArray()
     }
 
-    override fun injectIntoClassLoader(classLoader: LaunchClassLoader?) {
-        // need to make asm inject somehow, dont know yet, but as of now it's not doing anything
+    override fun injectIntoClassLoader(classLoader: LaunchClassLoader) {
+        classLoader.registerTransformer("net.novaclient.nova.asm.NovaMinecraft")
     }
 }
