@@ -7,7 +7,7 @@ fun NovaTransformers.overwriteClientBrandRetriever() {
 }
 
 fun getClientModName() = overwrite {
-    className = "net/minecraft/client/ClientBrandRetriever"
+    className = "net.minecraft.client.ClientBrandRetriever"
     methodName = "getClientModName"
     methodDesc = "()Ljava/lang/String;"
 

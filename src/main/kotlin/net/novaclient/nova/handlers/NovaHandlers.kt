@@ -1,6 +1,7 @@
 package net.novaclient.nova.handlers
 
 import net.novaclient.nova.Nova
+import net.novaclient.nova.event.NovaEventbus
 import net.novaclient.nova.handlers.config.ConfigHandler
 import net.novaclient.nova.handlers.display.DisplayHandler
 import java.io.File
@@ -15,5 +16,6 @@ class NovaHandlers {
         configHandler.load()
 
         displayHandler = DisplayHandler()
+        NovaEventbus.register(displayHandler)
     }
 }
