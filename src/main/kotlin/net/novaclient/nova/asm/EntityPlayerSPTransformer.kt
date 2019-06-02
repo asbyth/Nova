@@ -23,16 +23,15 @@ fun onUpdate() = inject {
         ), before = false
     )
 
-    //NovaEventbus.call(TickEvent())
+    // NovaEventbus.call(TickEvent())
     insnList {
-        getKObjectInstance("net/novaclient/nova/event/NovaEventbus")
-        createInstance("net/novaclient/nova/event/events/TickEvent", "()V")
-        checkcast("net/novaclient/nova/event/NovaEvent")
-        invoke(
-            InvokeType.VIRTUAL,
-            "net/novaclient/event/NovaEventbus",
-            "call",
-            "(Lnet/novaclient/nova/event/NovaEvent;)V"
-        )
+        invokeKOBjectFunction("net/novaclient/nova/event/NovaEventbus", "call",
+            "(Lnet/novaclient/nova/event/NovaEvent;)V") {
+
+            argument {
+                createInstance("net/novaclient/nova/event/events/TickEvent", "()V")
+                checkcast("net/novaclient/nova/event/NovaEvent")
+            }
+        }
     }
 }

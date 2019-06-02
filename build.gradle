@@ -40,7 +40,7 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    embed 'com.github.Sk1erLLC:AsmHelper:c84ce12'
+    embed 'com.github.Sk1erLLC:AsmHelper:e7256f890a'
 }
 
 compileKotlin {
