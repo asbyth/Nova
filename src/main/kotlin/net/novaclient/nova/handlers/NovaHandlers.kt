@@ -1,6 +1,7 @@
 package net.novaclient.nova.handlers
 
 import net.novaclient.nova.Nova
+import net.novaclient.nova.config.Settings
 import net.novaclient.nova.event.NovaEventbus
 import net.novaclient.nova.handlers.config.ConfigHandler
 import net.novaclient.nova.handlers.display.DisplayHandler
@@ -14,6 +15,7 @@ class NovaHandlers {
     fun init() {
         configHandler = ConfigHandler(File(Nova.NOVA_STORAGE_FOLDER, "novaConfiguration.json"))
         configHandler.load()
+        configHandler.register(Settings)
 
         displayHandler = DisplayHandler()
         NovaEventbus.register(displayHandler)
