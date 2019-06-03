@@ -1,9 +1,13 @@
-package net.novaclient.nova.asm
+package net.novaclient.nova.asm.transformers.client.entity
 
 import me.falsehonesty.asmhelper.dsl.At
 import me.falsehonesty.asmhelper.dsl.InjectionPoint
 import me.falsehonesty.asmhelper.dsl.inject
-import me.falsehonesty.asmhelper.dsl.instructions.*
+import me.falsehonesty.asmhelper.dsl.instructions.Descriptor
+import me.falsehonesty.asmhelper.dsl.instructions.argument
+import me.falsehonesty.asmhelper.dsl.instructions.createInstance
+import me.falsehonesty.asmhelper.dsl.instructions.invokeKOBjectFunction
+import net.novaclient.nova.asm.NovaTransformers
 
 fun NovaTransformers.injectTickEvent() {
     onUpdate()
@@ -25,8 +29,10 @@ fun onUpdate() = inject {
 
     // NovaEventbus.call(TickEvent())
     insnList {
-        invokeKOBjectFunction("net/novaclient/nova/event/NovaEventbus", "call",
-            "(Lnet/novaclient/nova/event/NovaEvent;)V") {
+        invokeKOBjectFunction(
+            "net/novaclient/nova/event/NovaEventbus", "call",
+            "(Lnet/novaclient/nova/event/NovaEvent;)V"
+        ) {
 
             argument {
                 createInstance("net/novaclient/nova/event/events/TickEvent", "()V")

@@ -1,6 +1,7 @@
-package net.novaclient.nova.asm
+package net.novaclient.nova.asm.transformers.client
 
 import me.falsehonesty.asmhelper.dsl.overwrite
+import net.novaclient.nova.asm.NovaTransformers
 
 fun NovaTransformers.overwriteClientBrandRetriever() {
     getClientModName()

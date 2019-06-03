@@ -1,10 +1,11 @@
-package net.novaclient.nova.asm
+package net.novaclient.nova.asm.transformers.client
 
 import me.falsehonesty.asmhelper.dsl.At
 import me.falsehonesty.asmhelper.dsl.InjectionPoint
 import me.falsehonesty.asmhelper.dsl.inject
 import me.falsehonesty.asmhelper.dsl.instructions.Descriptor
 import me.falsehonesty.asmhelper.dsl.instructions.invokeKOBjectFunction
+import net.novaclient.nova.asm.NovaTransformers
 
 fun NovaTransformers.injectStartNova() {
     startGame()

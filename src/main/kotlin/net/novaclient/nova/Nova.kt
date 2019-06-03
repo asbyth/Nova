@@ -19,6 +19,7 @@ object Nova {
             logger.info("Creating storage folder")
         }
 
+        logger.info("Initializing Handlers")
         NovaHandlers().init()
 
         Display.setTitle("Nova")

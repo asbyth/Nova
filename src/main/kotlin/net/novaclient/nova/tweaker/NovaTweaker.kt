@@ -8,21 +8,21 @@ import kotlin.collections.ArrayList
 
 class NovaTweaker : ITweaker {
 
-    private var novaArguments: MutableList<String>? = null
+    private lateinit var novaArguments: MutableList<String>
 
     override fun acceptOptions(args: MutableList<String>?, gameDir: File?, assetsDir: File?, profile: String?) {
         novaArguments = ArrayList(args)
 
         if (gameDir != null) {
-            novaArguments!!.addAll(Arrays.asList("--gameDir", gameDir.absolutePath))
+            novaArguments.addAll(Arrays.asList("--gameDir", gameDir.absolutePath))
         }
 
         if (assetsDir != null) {
-            novaArguments!!.addAll(Arrays.asList("--assetsDir", assetsDir.absolutePath))
+            novaArguments.addAll(Arrays.asList("--assetsDir", assetsDir.absolutePath))
         }
 
         if (profile != null) {
-            novaArguments!!.addAll(Arrays.asList("--version", profile))
+            novaArguments.addAll(Arrays.asList("--version", profile))
         }
     }
 
@@ -31,7 +31,7 @@ class NovaTweaker : ITweaker {
     }
 
     override fun getLaunchArguments(): Array<String> {
-        return novaArguments!!.toTypedArray()
+        return novaArguments.toTypedArray()
     }
 
     override fun injectIntoClassLoader(classLoader: LaunchClassLoader) {
