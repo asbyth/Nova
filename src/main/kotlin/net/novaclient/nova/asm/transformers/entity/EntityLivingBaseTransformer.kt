@@ -21,12 +21,12 @@ fun transformGetLook() = inject {
 
     insnList {
         aload(0)
-        instanceof("net/minecraft/entity/EntityLivingBase")
+        instanceof("net/minecraft/client/entity/EntityPlayerSP")
         ifClause(JumpCondition.NOT_EQUAL) {
             aload(0)
             fload(1)
             invoke(InvokeType.SPECIAL, "net/minecraft/entity/Entity", "getLook", "(F)Lnet/minecraft/util/Vec3;")
-            pop()
+            areturn()
         }
     }
 }
